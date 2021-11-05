@@ -5,31 +5,27 @@ import java.util.Scanner;
 public class Logical_programs {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number to find Fibonacci Series:: ");
-        int upToSum = sc.nextInt();
-        fibonacciSeries(upToSum);
+        System.out.println("Enter a number to check perfect number:: ");
+        int perfectCheck = sc.nextInt();
 
+
+        PerfectCheck(perfectCheck);
     }
+    public static void PerfectCheck(int perfectCheck) {
 
-    public static void fibonacciSeries(int upToSum) {
+        int remainder;
+        int sum = 0;
 
-        int firstNumber = 0;
-        int secondNumber = 1;
-        int thirdNumber;
-        if (upToSum == 1) {
-            System.out.println(firstNumber);
-            return;
-        } else {
-            System.out.println(firstNumber);
-            System.out.println(secondNumber);
-
-            for (int i = 2; i < upToSum; i++) {
-                thirdNumber = firstNumber + secondNumber;
-                System.out.println(thirdNumber);
-
-                firstNumber = secondNumber;
-                secondNumber = thirdNumber;
+        for (int i = 1; i < perfectCheck; i++) {
+            remainder = perfectCheck % i;
+            if (remainder == 0) {
+                sum = sum + i;
             }
+        }
+        if (sum == perfectCheck) {
+            System.out.println("The number is Perfect Number");
+        } else {
+            System.out.println("The number is not Perfect Number");
         }
 
     }
